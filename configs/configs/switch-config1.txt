@@ -1,0 +1,68 @@
+switch-config.txt
+! =========================================================
+! Project: Cisco VLAN & Inter-VLAN Routing Lab
+! Device: Cisco 2960 Switch
+! Hostname: SW1
+! Purpose: VLAN Segmentation and 802.1Q Trunking
+! =========================================================
+
+hostname SW1
+
+!
+! =========================================================
+! Trunk Link to Router R1
+! =========================================================
+!
+interface FastEthernet0/1
+ switchport mode trunk
+
+!
+! =========================================================
+! VLAN 10 - HR
+! PC-HR connected to Fa0/2
+! =========================================================
+!
+interface FastEthernet0/2
+ switchport access vlan 10
+ switchport mode access
+
+!
+! =========================================================
+! VLAN 20 - FINANCE
+! PC-FINANCE connected to Fa0/3
+! =========================================================
+!
+interface FastEthernet0/3
+ switchport access vlan 20
+ switchport mode access
+
+!
+! =========================================================
+! VLAN 30 - IT
+! PC-IT connected to Fa0/4
+! =========================================================
+!
+interface FastEthernet0/4
+ switchport access vlan 30
+ switchport mode access
+
+!
+! =========================================================
+! Management VLAN 1 - Disabled
+! =========================================================
+!
+interface Vlan1
+ no ip address
+ shutdown
+
+!
+! =========================================================
+! Spanning Tree
+! =========================================================
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+
+!
+! End of configuration
+! =========================================================
