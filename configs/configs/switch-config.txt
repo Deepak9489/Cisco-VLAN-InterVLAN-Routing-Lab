@@ -1,0 +1,26 @@
+
+hostname SW1
+
+vlan 10
+ name HR
+
+vlan 20
+ name FINANCE
+
+vlan 30
+ name IT
+
+interface FastEthernet0/1
+ switchport mode trunk
+
+interface FastEthernet0/2
+ switchport mode access
+ switchport access vlan 10
+
+interface FastEthernet0/3
+ switchport mode access
+ switchport access vlan 20
+
+interface FastEthernet0/4
+ switchport mode access
+ switchport access vlan 30
